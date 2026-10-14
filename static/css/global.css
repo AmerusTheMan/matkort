@@ -1,0 +1,179 @@
+:root{
+    --edge-padding: 1rem;
+    --bg-color: #0f0f23;
+    --text-color: #cccccc;
+    --highlight-color: #ffffff;
+    --link_color: #20ec20;
+    --link-highlight-colour: #83ff83;
+    --default-font-family: "Roboto Mono", monospace;
+}
+
+body{
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    font-family: "Roboto Mono", monospace;
+    font-style: normal;
+}
+
+
+header{
+    grid-area: hd;
+    display: flex;
+    padding: var(--edge-padding);
+
+    *{
+        max-height: 5rem;
+    }
+}
+
+
+aside{
+    grid-area: as;
+    padding: var(--edge-padding);
+
+}
+
+main{
+    grid-area: mn;
+    padding: var(--edge-padding);
+    min-height: 100vh;
+
+}
+
+nav{
+    grid-area: nv;
+    padding: var(--edge-padding);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--highlight-color);
+}
+
+
+a,
+form input[type="submit"]{
+    color: var(--link_color);
+    font-size: large;
+    background: none;
+    border-style: none;
+    text-decoration: underline;
+    font-family: var(--default-font-family);
+    padding: 0;
+    cursor: pointer;
+}
+a:hover,
+form input[type="submit"]:hover{
+    color: var(--link-highlight-colour);
+}
+
+
+strong{
+    color: var(--highlight-color);
+}
+
+
+footer{
+    padding: var(--edge-padding);
+    display: block;
+    grid-area: ft;
+    background-color: black;
+}
+
+.faq{
+    display: flex;
+    flex-wrap: wrap;   
+    justify-content: center; 
+
+    .question{
+        padding: var(--edge-padding);
+        width: min(500px, 35vw);
+    }
+}
+
+textarea{
+    filter: brightness(150%);
+    background-color: var(--bg-color);
+
+    font-size: 1rem;
+    width: min(75vw, 20rem);
+    
+    border-radius: 1rem;
+    border-style: solid;
+    
+    border-color: var(--text-color);
+    color: var(--text-color);
+    
+    resize: none;
+}
+
+
+.input-field{
+    filter: brightness(150%);
+    background-color: var(--bg-color);
+    font-size: 1rem;
+    height: 2rem;
+    width: min(75vw, 20rem);
+    border-radius: 1rem;
+    border-style: solid;
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+
+/* Desktop css */
+@media screen and (min-width:801px){
+    .wrapper{
+        display: grid;
+        grid-template-columns: 1fr 3fr 50vw 4fr;
+        grid-template-areas: 
+        " . .  hd . "
+        " . .  nv ."
+        " . as mn . "
+        "ft ft ft ft"
+        ;
+    }
+
+    .place{
+        flex-direction: row;
+
+        .extra-info{
+            width: 50%;
+        }
+    }
+}
+
+
+/* Mobile css */
+@media screen and (max-width:800px){
+    .wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "hd"
+        "nv"
+        "as"
+        "mn"
+        "ft"
+        ;
+    }
+
+    .place{
+        flex-direction: column;
+    }
+}
+
+
+/*Hide increment arrows on input:number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+

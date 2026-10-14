@@ -1,0 +1,32 @@
+{% extends"layout.html" %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/edit.css')}}">
+{% endblock %}
+
+{% block header %}{{ super() }}<h1>{% block title %} Create place {% endblock %}</h1>{% endblock %}
+
+
+{% block main %}
+<form method="post">
+    <h3>Name</h3>
+    <input type="text" name="name" required="required" class="input-field">
+
+    <h3>Address</h3>
+    <input type="text" name="address" required="required" class="input-field">
+
+    <h3>Maps-link</h3>
+    <input type="url" name="maps" required="required" class="input-field">
+
+    <h3>Tags</h3>
+    <input type="text" name="tags" required="required" class="input-field">
+
+    <h3>Traveltime (min)</h3>
+    <input type="number" name="travel_time_min" required="required" class="input-field">
+
+    <h3>Extra info</h3>
+    <textarea rows="5" name="extra_info"></textarea>
+
+    <p><input type="submit" value="Create"></p>
+</form>
+{% endblock %}

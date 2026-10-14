@@ -1,0 +1,18 @@
+{% for place in places %}
+
+    <div class="place">
+        <div class="main-info">
+            <h3 class="place-title">{{ place["name"] }}</h3>
+            <a class="info-item" href="{{ place['maps'] }}" target="_blank">{{ place['address'] }}</a>
+            <span class="info-item">Restid: {{ place["travel_time_min"] }} minuter</span>
+            {%- if is_admin -%}
+                <a class="info-item" href="{{url_for("places_update", place_id=place["id"])}}">Edit</a>
+            {%- endif -%}
+        </div>
+        <div class="extra-info">
+            <h3>Mer information</h3>
+            <p>{{ place["extra_info"] }}</p>
+        </div>
+    </div>
+
+{% endfor %}

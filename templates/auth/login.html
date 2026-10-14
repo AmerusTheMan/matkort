@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block header %} 
+
+{{ super() }} <h1>{%block title%} Login {% endblock %}</h1>
+
+{% endblock %}
+
+
+{% block main %}
+<form action="{{url_for("login_post")}}"method="post">
+
+    <p><input type="text" required="required" name="username" class="input-field"></p>
+    <p><input type="password" required="required" name="password" class="input-field"></p>
+    <p><input type="submit" value="Login"></p>
+</form>
+{% endblock %}
+

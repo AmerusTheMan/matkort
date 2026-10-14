@@ -1,0 +1,10 @@
+.data-row{
+    display: flex;
+    justify-content: baseline;
+    gap: 10px;
+    margin-top: 1rem;
+    padding: var(--edge-padding);
+    border-radius: 1rem;
+    border-style: solid;
+
+}

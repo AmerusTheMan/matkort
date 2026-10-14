@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block header %}{{ super() }}<h1>{% block title %} Update user {% endblock %}</h1>{% endblock %}
+
+
+{% block main %}
+<form method="post">
+    <h2>User id: {{ user["id"] }}</h2>
+    <h3>Username</h3>
+    <input type="text" name="username" value="{{ user["username"] }}" required="required" class="input-field">
+
+    <h3>New password</h3>
+    <input type="password" name="password" required="required" class="input-field">
+
+    <h3>Confirm password</h3>
+    <input type="password" name="password_confirm" required="required" class="input-field">
+
+    <h3>
+        Is admin<input type="checkbox" name="is_admin" checked="{{ user["is_admin"] }}"">
+    </h3>
+    <p><input type="submit" value="Update"></p>
+</form>
+
+{% endblock %}

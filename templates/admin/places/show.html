@@ -1,0 +1,17 @@
+{% extends "data_list.html" %}
+
+{% block header %}{{ super() }}<h1>{% block title %} Places {% endblock %}</h1>{% endblock %}
+
+
+{% block main %}
+    <a href="{{ url_for("places_create")}}">Add new</a>
+    {% for place in places %}
+        <div class="data-row">
+            <strong>{{ place["name"] }}</strong>
+            <a href="{{ url_for("places_update", place_id=place["id"]) }}"">EDIT</a>
+            <form action="{{ url_for("places_delete_post", place_id=place["id"]) }}" method="post">
+                <input type="submit" value="REMOVE" onclick="return confirm('Are you sure you want to remove this place')">
+            </form>
+        </div>
+    {% endfor %}
+{% endblock %}
