@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for("static", filename="css/global.css") }}">
+
+{% endblock  %}
+
+{% block body %}
+<div class="wrapper">
+    <header>
+        {% block header %} 
+        {% endblock %}
+    </header>
+    
+    <nav>
+        <a href="">some nav</a>
+    </nav>
+
+    <aside>
+        {% block aside %}{% endblock %} 
+    </aside>
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+
+    <footer>
+        <h2>FAQ</h2>
+        <div class="faq">
+            <div class="question">
+                <h3>Vem tar hand om den här sidan</h3>
+                <span>Den här sidan är skapad och underhålls av <strong>Johannes Aspman</strong> i <strong>TE24B</strong></span>
+            </div>
+            
+            <div class="question">
+                <h3>Kan du lägga till funktionen ______?</h3>
+                <span>Kanske, hitta mig i skolan eller kontakta mig på discord: <strong>Amerus</strong></span>
+            </div>
+
+            <div class="question">
+                <h3>Får jag hjälpa till med sidan?</h3>
+                <span>
+                    Eftersom att jag själv hostar sidan så vill jag hällst inte att andra är inne och petar på servern.
+                    Däremot får du gärna hjälpa till på annat sätt. Typ sammla information om ställen
+                </span>
+            </div>
+        </div>
+    </footer>
+</div>
+{% endblock %}
